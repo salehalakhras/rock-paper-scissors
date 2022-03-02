@@ -11,44 +11,24 @@ function computerPlay() {
 
 function playRound(computerSelection, playerSelection) {
     if (computerSelection === playerSelection.toLowerCase())
-        return 'Tie! ';
+        gameResult.textContent = 'Tie! ';
     else if (computerSelection === 'rock' && playerSelection.toLowerCase() === 'paper')
-        return 'You Win! Paper beats Rock.';
+        gameResult.textContent = 'You Win! Paper beats Rock.';
     else if (computerSelection === 'rock' && playerSelection.toLowerCase() === 'scissor')
-        return 'You Lose! Rock beats Scissor.';
+        gameResult.textContent = 'You Lose! Rock beats Scissor.';
     else if (computerSelection === 'paper' && playerSelection.toLowerCase() === 'rock')
-        return 'You Lose! Paper beats Rock.';
+        gameResult.textContent = 'You Lose! Paper beats Rock.';
     else if (computerSelection === 'paper' && playerSelection.toLowerCase() === 'scissor')
-        return 'You Win! Scissor beats Paper.'
+        gameResult.textContent = 'You Win! Scissor beats Paper.';
     else if (computerSelection === 'scissor' && playerSelection.toLowerCase() === 'paper')
-        return 'You Lose! Scissor beats Paper.';
+        gameResult.textContent = 'You Lose! Scissor beats Paper.';
     else if (computerSelection === 'scissor' && playerSelection.toLowerCase() === 'rock')
-        return 'You Win! Rock beats Scissor.';
+        gameResult.textContent = 'You Win! Rock beats Scissor.';
 }
-
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt();
-        const computerSelection = computerPlay();
-        const result = playRound(computerSelection, playerSelection);
-        console.log(result);
-
-        if (result[4] === 'W')
-            playerScore++;
-        else if (result[4] === 'L')
-            computerScore++;
-
-        console.log("Player Score: " + playerScore + "  Computer Score: " + computerScore);
-    }
-
-    if (playerScore > computerScore)
-        console.log("Congratulations You Won!");
-    else if (playerScore < computerScore)
-        console.log('Sorry You Lost');
-}
-
-game();
+const gameResult = document.createElement('div');
+const gameScore = document.createElement('div');
+const button = document.querySelectorAll('button');
+button.forEach(btn => btn.addEventListener('click', function(e) {
+    playRound(computerPlay(), e.target.id);
+    btn.parentNode.appendChild(gameResult);
+}))
