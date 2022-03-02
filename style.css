@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border: black;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+button {
+    height: 5vh;
+    width: 15vw;
+    margin: 2em;
+    font-size: xx-large;
+    border-radius: 10px;
+    background-color: aqua;
+    border-style: solid;
+    border-color: black;
+}
+
+button:active {
+    border-color: white;
+}
+
+.txtContainer {
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.winner {
+    margin: 2em;
+}
